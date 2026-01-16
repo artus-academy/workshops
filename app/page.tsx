@@ -1,17 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 
-// Quiz release date: Jan 16, 2026, 12:30 PM IST
-const QUIZ_RELEASE_DATE = new Date("2026-01-16T12:30:00+05:30");
+// Update quiz release date here
+// const QUIZ_RELEASE_DATE = new Date("2026-01-16T12:30:00+05:30");
 
 export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isQuizAvailable, setIsQuizAvailable] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -25,17 +23,18 @@ export default function Home() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    const checkQuizStatus = () => {
-      const now = new Date();
-      setIsQuizAvailable(now >= QUIZ_RELEASE_DATE);
-    };
+  // Uncomment the following lines to enable the quiz
+  // useEffect(() => {
+  //   const checkQuizStatus = () => {
+  //     const now = new Date();
+  //     setIsQuizAvailable(now >= QUIZ_RELEASE_DATE);
+  //   };
 
-    checkQuizStatus();
-    const interval = setInterval(checkQuizStatus, 1000); // Check every second
+  //   checkQuizStatus();
+  //   const interval = setInterval(checkQuizStatus, 1000); // Check every second
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-black font-sans">
