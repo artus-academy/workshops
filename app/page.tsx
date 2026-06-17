@@ -24,17 +24,18 @@ export default function Home() {
   }, []);
 
   // Uncomment the following lines to enable the quiz
-  // useEffect(() => {
-  //   const checkQuizStatus = () => {
-  //     const now = new Date();
-  //     setIsQuizAvailable(now >= QUIZ_RELEASE_DATE);
-  //   };
+  const QUIZ_RELEASE_DATE = new Date("2026-06-18T10:30:00+05:30");
+  useEffect(() => {
+    const checkQuizStatus = () => {
+      const now = new Date();
+      setIsQuizAvailable(now >= QUIZ_RELEASE_DATE);
+    };
 
-  //   checkQuizStatus();
-  //   const interval = setInterval(checkQuizStatus, 1000); // Check every second
+    checkQuizStatus();
+    const interval = setInterval(checkQuizStatus, 1000); // Check every second
 
-  //   return () => clearInterval(interval);
-  // }, []);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-black font-sans">
@@ -92,7 +93,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-3 items-center">
               {isQuizAvailable ? (
                 <a
-                  href="https://forms.gle/Tyn749ojDBL5Qpd78"
+                  href="https://forms.gle/4eyRbVgJYhUZV9WF7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 px-4 rounded-xl bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-950 text-sm font-bold text-center hover:opacity-90 transition-opacity"
@@ -103,7 +104,7 @@ export default function Home() {
                 <div className="w-full py-3 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-600 text-sm font-bold text-center cursor-not-allowed group/quiz relative">
                   Take Quiz
                   <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover/quiz:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-30">
-                    Available Jan 16, 12:30 PM
+                    Available Jun 18, 10:30 PM
                   </div>
                 </div>
               )}
