@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
 
   // Uncomment the following lines to enable the quiz
-  const QUIZ_ENABLED = true;
+  const QUIZ_ENABLED = false;
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-black font-sans">
